@@ -3,7 +3,7 @@ class Node {
     this.value = val;
     this.children = children;
   }
-  find(val) {
+  findDFS(val) {
     const toVisitStack = [this];
     while (toVisitStack.length) {
       const current = toVisitStack.pop();
@@ -12,6 +12,18 @@ class Node {
       }
       for (let child of current.children) {
         toVisitStack.push(child);
+      }
+    }
+  }
+  findBFS(val) {
+    const toVisitQueue = [this];
+    while (toVisitQueue.length) {
+      const current = toVisitQueue.shift();
+      if (current.value == val) {
+        return current;
+      }
+      for (let child of current.children) {
+        toVisitQueue.push(child);
       }
     }
   }
