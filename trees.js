@@ -3,6 +3,18 @@ class Node {
     this.value = val;
     this.children = children;
   }
+  find(val) {
+    const toVisitStack = [this];
+    while (toVisitStack.length) {
+      const current = toVisitStack.pop();
+      if (current.value == val) {
+        return current;
+      }
+      for (let child of current.children) {
+        toVisitStack.push(child);
+      }
+    }
+  }
 }
 
 /* let amy = new Node("amy");
@@ -28,4 +40,4 @@ let htmlEl = new Node("html", [
   new Node("body", [new Node("ul", [new Node("li", new Node("li2"))])]),
 ]);
 
-console.log(htmlEl);
+console.log(htmlEl.find("ul"));
