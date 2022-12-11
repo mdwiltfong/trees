@@ -6,7 +6,7 @@ class Node {
   findDFS(val) {
     const toVisitStack = [this];
     while (toVisitStack.length) {
-      const current = toVisitStack.pop();
+      const current = toVisitStack.pop(); //removes the last element in an array
       if (current.value == val) {
         return current;
       }
@@ -18,7 +18,7 @@ class Node {
   findBFS(val) {
     const toVisitQueue = [this];
     while (toVisitQueue.length) {
-      const current = toVisitQueue.shift();
+      const current = toVisitQueue.shift(); //Removes from the beginning of the array
       if (current.value == val) {
         return current;
       }
